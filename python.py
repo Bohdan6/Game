@@ -19,14 +19,9 @@ green = (0,   255, 0)
 blue  = (0,   0,   255)
 black = (0,   0,   0)
 
-enemy_images = [ pygame.image.load( './enemy/'  'enemy' + str(x) + '.png') for x in range(17)
+enemy_images = [ pygame.image.load( './enemy/'  'enemy' + str(x) + '.png') for x in range(17)]
 
- 
-  ]
-
-hero_images = [ pygame.image.load( './hero/' 'hero' + str(x) + '.png') for x in range(13)
-   
-]
+hero_images = [ pygame.image.load( './hero/' 'hero' + str(x) + '.png') for x in range(13)]
 
 def get_size(image, width):
     image_size = image.get_rect().size
@@ -51,7 +46,7 @@ class Base():
 
 class Hero(Base):
     def __init__(self):
-    	super().__init__(50,int(window_height / 2),hero_images)
+    	super().__init__(50,int(window_height / 2), hero_images)
       
     def move(self, x, y):
         self.x += x
@@ -60,7 +55,7 @@ class Hero(Base):
 class  Enemy (Base):
 	def __init__(self):
 		super().__init__(
-			int (window_width + 0.8),
+			int (window_width * 0.8),
 			int (window_height / 2),
 			enemy_images)
 		
@@ -130,10 +125,10 @@ while True:
         enemy_frame = (enemy_frame + 1) % 17
 		
 
-    wnd.fill(green)
-    hero.move(s_x,s_y)
-    hero.draw(hero_frame)
-    enemy.draw(enemy_frame)
+    	wnd.fill(green)
+    	hero.move(s_x,s_y)
+   	hero.draw(hero_frame)
+   	enemy.draw(enemy_frame)
 
 
 
