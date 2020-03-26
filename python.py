@@ -19,9 +19,9 @@ green = (0,   255, 0)
 blue  = (0,   0,   255)
 black = (0,   0,   0)
 
-enemy_images = [ pygame.image.load( './enemy/'  'enemy' + str(x) + '.png') for x in range(17)]
+enemy_images = [ pygame.image.load( './enemy/' +'enemy' + str(x) + '.png') for x in range(17)]
 
-hero_images = [ pygame.image.load( './hero/' 'hero' + str(x) + '.png') for x in range(13)]
+hero_images = [ pygame.image.load( './hero/' + 'hero' + str(x) + '.png') for x in range(13)]
 
 def get_size(image, width):
     image_size = image.get_rect().size
@@ -107,29 +107,34 @@ while True:
                 s_y -= s
 
 
-        if pygame.time.get_ticks() > hero_tick:
-            if s_x > 0:
-                hero_tick += 70
-            elif s_x < 0:
-                hero_tick += 100
-            else:
-                hero_tick += 85
+    if pygame.time.get_ticks() > hero_tick:
+        if s_x > 0:
+            hero_tick += 70
+        elif s_x < 0:
+            hero_tick += 100
+        else:
+            hero_tick += 85
 
         
 
-        hero_frame = (hero_frame + 1) % 13
+    hero_frame = (hero_frame + 1) % 13
 
-        if pygame.time.get_ticks() > enemy_tick:
+    if pygame.time.get_ticks() > enemy_tick:
             enemy_tick += 25
 
-        enemy_frame = (enemy_frame + 1) % 17
+    enemy_frame = (enemy_frame + 1) % 17
 		
 
-    	wnd.fill(green)
-    	hero.move(s_x,s_y)
-   	hero.draw(hero_frame)
-   	enemy.draw(enemy_frame)
+
+
+    wnd.fill(green)
+    hero.move(s_x,s_y)
+    hero.draw(hero_frame)
+    enemy.draw(enemy_frame)
 
 
 
     pygame.display.update()
+
+
+   
