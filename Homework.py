@@ -28,3 +28,10 @@ C = [x for x in range (101)]
 F = [int(x * 1.8 + 32) for x in C]
 
 print(C , F)
+
+
+#Task 7
+lst_6 = [random.randint(100,600),random.randint (100,600)]
+k = [] 
+k.append(map(lst_6[0]/lst_6[1], k))
+print(k)
